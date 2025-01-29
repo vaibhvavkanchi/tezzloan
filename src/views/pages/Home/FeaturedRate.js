@@ -34,6 +34,7 @@ const StyledBox2 = styled(Box)(({ theme }) => ({
   },
   "& .cards": {
     padding: "20px",
+    height: "100%",
     background: "#fff",
     borderRadius: "4px",
     boxShadow: "0px 2px 7px 0px #00000021",
@@ -47,6 +48,9 @@ const StyledBox2 = styled(Box)(({ theme }) => ({
       color: theme.palette.text.secondary,
       fontFamily: "Open Sans",
       fontWeight: 700,
+      [theme.breakpoints.down("md")]: {
+        fontSize: "12px"
+      }
     },
     "& .cardSub": {
       fontSize: "12px",
@@ -61,13 +65,34 @@ const StyledBox2 = styled(Box)(({ theme }) => ({
       // textAlign: "center",
       marginTop: "10px",
       marginBottom: "10px",
+      [theme.breakpoints.down("md")]: {
+        fontSize: "26px"
+      }
     },
     "& .rate": {
       color: theme.palette.text.light,
       fontSize: "12px",
       fontFamily: "Open Sans",
       fontWeight: 700,
+      [theme.breakpoints.down("md")]: {
+        fontSize: "9px"
+      }
     },
+  },
+  "& .FooterLine": {
+    color: "#4B5155",
+    fontSize: "14px",
+    fontFamily: "Open Sans",
+    textAlign: "center",
+    marginTop: "20px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "12px"
+    }
+  },
+  "& .titleText": {
+    [theme.breakpoints.down("md")]: {
+      fontSize: "20px"
+    }
   },
 }));
 
@@ -86,6 +111,7 @@ const FeaturedRate = () => {
           align={isSmall ? "left" : "center"}
           sx={{ fontWeight: 700, fontFamily: "Open Sans" }}
           data-aos="fade-up"
+          className="titleText"
         >
           Featured rates on our network
         </Typography>
@@ -261,15 +287,7 @@ const FeaturedRate = () => {
             </Box>
           </Grid>
         </Grid>
-        <Typography
-          sx={{
-            color: "#4B5155",
-            fontSize: "14px",
-            fontFamily: "Open Sans",
-            textAlign: "center",
-            marginTop: "20px",
-          }}
-        >
+        <Typography className="FooterLine">
           Rates above may change at lender discretion and may not be available
           at the time of loan commitment or lock-in.
         </Typography>

@@ -30,6 +30,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
   "& .card": {
     cursor: "pointer",
+    height:"100%",
     backgroundColor: theme.palette.background.default,
     border: "1px solid #CADCFF",
     borderRadius: "10px",

@@ -57,6 +57,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
     fontSize: "27px",
     fontWeight: 700,
     fontFamily: "Open Sans",
+    [theme.breakpoints.down("md")]:{
+      fontSize:"20px"
+    }
   },
   "& .card": {
     display: "flex",

@@ -6,6 +6,7 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
+  Divider,
 } from "@mui/material";
 
 import LogoBox from "../../component/LogoBox";
@@ -47,6 +48,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
           color: "#fe2efe",
           fontSize: "15px",
         },
+        [theme.breakpoints.down("md")]: {
+          color: "#9ABCFF"
+        }
       },
     },
 
@@ -106,6 +110,21 @@ const StyledBox = styled(Box)(({ theme }) => ({
       },
     },
   },
+  "& .followUSContainer": {
+    display: "none",
+    [theme.breakpoints.down('sm')]: {
+      display: "flex",
+    },
+    "&. followUS": {
+        padding: "18px 0px 11px 0px",
+        fontSize: "18px"
+    },
+  },
+  "& .bootomText": {
+    [theme.breakpoints.down("md")]: {
+      fontSize: "12px"
+    }
+  }
 }));
 
 export default function Footer() {
@@ -122,7 +141,7 @@ export default function Footer() {
               xs={6}
               sm={6}
               md={3}
-              className="flex flex-col-reverse sm:flex-col-reverse md:flex-col"
+              className="flex flex-col-reverse sm:flex-col-reverse md:flex-col pl-4 md:pl-0"
             >
               <div>
                 <Typography
@@ -149,7 +168,7 @@ export default function Footer() {
               </Box>
             </Grid>
             <Grid item xs={6} sm={6} md={3}>
-              <Box className="ml-12">
+              <Box className="pl-4 md:pl-0 ml-0 md:ml-12">
                 <Typography className="font-roboto text-18">Company</Typography>
 
                 <ul>
@@ -165,7 +184,7 @@ export default function Footer() {
               </Box>
             </Grid>
             <Grid item xs={6} sm={6} md={3}>
-              <Box className="ml-12">
+              <Box className="pl-0 ml-0 md:ml-12">
                 <Typography className="font-roboto text-18">product</Typography>
 
                 <ul>
@@ -185,7 +204,7 @@ export default function Footer() {
               </Box>
             </Grid>
             <Grid item xs={6} sm={6} md={3}>
-              <Box className="ml-12">
+              <Box className="pl-4 md:pl-0 ml-0 md:ml-12">
                 <Typography className="font-roboto text-18">Help</Typography>
 
                 <ul>
@@ -207,15 +226,30 @@ export default function Footer() {
           </Grid>
 
           <Grid container>
-            <Grid item xs={12} sm={12} md={4}></Grid>
-            <Grid item xs={12} sm={12} md={8}>
-              <Box className="flex items-center gap-3 justify-center  sm:justify-center md:justify-end  flex-wrap">
+            <Grid item xs={12} sm={12} md={4}>
+              <div className="flex items-center gap-3 justify-center flex-col followUSContainer align-center">
                 <hr
                   style={{
                     maxWidth: "400px",
                     width: "100%",
                     height: "1px",
                     color: "white",
+                  }}
+                />
+                <Typography className="followUS">Follow Us</Typography>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={8}>
+              <Box className="flex items-center gap-3 justify-center  sm:justify-center md:justify-end  flex-wrap">
+                <Divider
+                  sx={{
+                    maxWidth: "400px",
+                    width: "100%",
+                    height: "1px",
+                    borderColor: "#ffffff1f",
+                    color: "white",
+                    display:"block",
+                    "@media(max-width: 599px)":{ display:"none" },
                   }}
                 />
                 <div className="flex gap-3 items-center">
@@ -257,7 +291,7 @@ export default function Footer() {
               className="flex items-center justify-center flex-wrap"
               style={{ gap: "28px", color: "#9199A1" }}
             >
-              <Typography variant="body1">
+              <Typography variant="body1" className="bootomText">
                 Copyright © Tezloan {date.getFullYear()}.
               </Typography>
               <Box
@@ -269,6 +303,7 @@ export default function Footer() {
                   style={{ fontWeight: "400", padding: "0" }}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="bootomText"
                 >
                   Privecy Policy
                 </Typography>
@@ -277,6 +312,7 @@ export default function Footer() {
                   style={{ fontWeight: "400", padding: "0" }}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="bootomText"
                 >
                   Terms of Use
                 </Typography>
