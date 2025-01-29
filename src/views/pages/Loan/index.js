@@ -15,7 +15,6 @@ import {
   LinearProgress,
   Grid,
 } from "@mui/material";
-import CircleIcon from "@mui/icons-material/Circle"; // Dot Icon
 import Purpose from "./Purpose";
 
 const StyledBox = styled(Box)(({ theme }) => ({
