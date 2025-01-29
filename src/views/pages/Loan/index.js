@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Stepper,
   Step,
@@ -16,6 +16,7 @@ import {
   Grid,
 } from "@mui/material";
 import Purpose from "./Purpose";
+import Deal from "./Deal";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "& .headTitle": {
@@ -62,6 +63,7 @@ const Loan = ({ activeStep, activeSubStep, handleNext }) => {
         formData={formData}
         setFormData={setFormData}
       />
+      <Deal/>
 
       {/* {purpposeType === "" && (
         <>

@@ -15,12 +15,18 @@ const StyledBox = styled(Box)(({ theme }) => ({
     fontSize: "17px",
     fontFamily: "Open Sans",
     color: theme.palette.text.main,
+    [theme.breakpoints.down("md")]:{
+      fontSize:"14px"
+    }
   },
   "& .gridTXT": {
     color: theme.palette.text.light,
     fontSize: "17px",
     fontFamily: "Open Sans",
     paddingBottom: "3px",
+    [theme.breakpoints.down("md")]:{
+      fontSize:"16px"
+    }
   },
 }));
 

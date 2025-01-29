@@ -32,6 +32,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
     borderRadius: "60px",
     border: "2px solid #fff",
     color: "#fff",
+    [theme.breakpoints.down("md")]:{
+      textTransform:"capitalize"
+    }
   },
   "& .readmoreContent": {
     fontSize: "14px",
