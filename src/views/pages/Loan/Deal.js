@@ -113,16 +113,16 @@ const Deal = ({ handleNext, formData, setFormData }) => {
         <BorderLinearProgress
           sx={{ maxWidth: "250px", width: "100%", mt: "72px" }}
           variant="determinate"
-          value={!otpsend ? 50 : 75}
+          value={!otpsend ? 15 : 30}
         />
         <Typography
-          className={`headTitle1 mt-10 mb-11 uppercase ${
-            !otpsend ? "mb-11" : "mt-9"
+          className={`headTitle1 lg:mt-10 sm:mt-6 mt-4 lg:mb-11 sm:mb-6 mb-0 uppercase ${
+            !otpsend ? "mb-11 " : "mt-9"
           }" `}
         >
           {!otpsend ? "Commercial property loan" : "HOME LOAN"}
         </Typography>
-        <Typography variant="h1" className={`${!otpsend ? "" : "mt-9"}" `}>
+        <Typography  className={` text-[20px] lg:text-[40px] sm:text-[30px]  mt-3 font-bold ${!otpsend ? "lg:mt-6" : "lg:mt-9 mt-3"}" `}>
           Let’s seal the deal
         </Typography>
 
@@ -130,7 +130,7 @@ const Deal = ({ handleNext, formData, setFormData }) => {
           <>
             <TextField
               id="phone-number"
-              className="NumberField mt-28"
+              className="NumberField mt-9 lg:mt-28 md:mt-14 sm:mt-9"
               variant="standard"
               InputProps={{
                 startAdornment: <IndCode />,
@@ -147,7 +147,7 @@ const Deal = ({ handleNext, formData, setFormData }) => {
             </Typography>
             <Button
               variant="contained"
-              className="ProceedBtn mt-20 py-5 px-28 rounded-3xl capitalize font-semibold"
+              className="ProceedBtn mt-6 lg:mt-20 md:mt-10 sm:mt-6 py-5 px-28 rounded-3xl capitalize font-semibold"
               onClick={handleSubmit}
             >
               Proceed
@@ -161,7 +161,7 @@ const Deal = ({ handleNext, formData, setFormData }) => {
           </>
         ) : (
           <div className="mt-4 flex flex-col items-center justify-center">
-            <Typography variant="body2" className="offerText mb-14 text-center">
+            <Typography variant="body2" className="offerText mb-6 lg:mb-14 sm:mb-9 text-center">
               Enter the 5-digit confirmation code that has been sent to +91-
               {maskMiddleCharacters(number)}{" "}
               <span
@@ -174,7 +174,7 @@ const Deal = ({ handleNext, formData, setFormData }) => {
               </span>
             </Typography>
             <OTPInput onComplete={otpConfirmation} />
-            <p style={{ color: "#666" }} className="mt-8 mb-24">
+            <p style={{ color: "#666" }} className="mt-5 lg:mt-8 sm:mt-6 mb-7 lg:mb-24">
               Haven't got the confirmation code yet?{" "}
               <a
                 href="#"
