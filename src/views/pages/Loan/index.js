@@ -18,6 +18,7 @@ import {
 import CircleIcon from "@mui/icons-material/Circle"; // Dot Icon
 import Purpose from "./Purpose";
 import Deal from "./Deal";
+import CibilVerification from "./CibilVerification";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "& .headTitle": {
@@ -65,7 +66,7 @@ const Loan = ({ activeStep, activeSubStep, handleNext }) => {
         setFormData={setFormData}
       />
       <Deal/>
-
+      <CibilVerification/>
       {/* {purpposeType === "" && (
         <>
           <Typography className="headTitle">Personal Loan</Typography>

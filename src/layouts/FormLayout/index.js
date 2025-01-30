@@ -144,7 +144,7 @@ export default function HomeLayout({ children }) {
                   <Button onClick={handleBack}>back</Button> */}
                 </Box>
               </Grid>
-              <Grid item sm={7}>
+              <Grid item sm={7} xs={12}>
                 {React.cloneElement(children, {
                   activeStep: activeStep,
                   activeSubStep: activeSubStep,
