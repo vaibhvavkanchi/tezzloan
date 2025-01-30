@@ -485,7 +485,16 @@ const Purpose = ({ handleNext, formData, setFormData }) => {
 
         <div className="checkbox-div">
           <CustomCheckbox>
-            <input type="checkbox" defaultChecked />
+            <input
+              type="checkbox"
+              checked={formData?.knowMarketValue}
+              onChange={(e) =>
+                setFormData((pre) => ({
+                  ...pre,
+                  knowMarketValue: e.target.checked,
+                }))
+              }
+            />
             <span className="checkmark"></span>
           </CustomCheckbox>
           <Typography className="checkbox-text">

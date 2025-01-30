@@ -18,7 +18,7 @@ import {
   Typography,
 } from "@mui/material";
 // ..
-
+import CircleIcon from "@mui/icons-material/Circle";
 const useStyles = {
   root: {
     height: "100%",
@@ -135,6 +135,16 @@ export default function HomeLayout({ children }) {
                         <StepLabel>
                           <Typography variant="h6">{step.label}</Typography>
                         </StepLabel>
+                        {stepIndex === 0 && (
+                          <CircleIcon
+                            style={{
+                              marginTop: "24px",
+                              height: "18px",
+                              width: "18ps",
+                              color: "#D9D9D9",
+                            }}
+                          />
+                        )}
                         <StepContent></StepContent>
                       </Step>
                     ))}
