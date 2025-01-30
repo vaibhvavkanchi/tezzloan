@@ -57,7 +57,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 const CibilVerification = () => {
-  const [document, setDocument] = useState("PAN");
+  const [document, setDocument] = useState("");
   const [documentNumber, setDocumentNumber] = useState({
     pan: "",
     aadharNumber: "",
@@ -112,7 +112,7 @@ const CibilVerification = () => {
   };
 
   const TextFieldWithRadio = ({ Name }) => (
-    <div className={`NumberField ${document === Name ? "radioField text-white" : ""} max-w-[603px] lg:mt-10 mt-7 cursor-pointer`} onClick={() => handleChange(Name)}>
+    <div className={`NumberField ${document === Name ? "radioField text-white" : "bg-white"} max-w-[603px] lg:mt-10 mt-7 cursor-pointer`} onClick={() => handleChange(Name)}>
       <FormControlLabel
         value="radio-option"
         control={
