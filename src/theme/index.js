@@ -8,6 +8,12 @@ const themesOptions = {
     // fontWeight: 400,
     // fontFamily: "'Jost', sans-serif",
   },
+  shadows: [
+    "none",
+    "0px 7px 6px 0px rgba(0,0,0,0.1)", // Custom shadow for elevation 1
+    "0px 3px 20px 0px rgba(64,123,255,0.18)", // Custom shadow for elevation 1
+    ...Array(23).fill("none"), // Fill remaining elevations with "none"
+  ],
 
   palette: {
     mode: "light",
@@ -31,6 +37,7 @@ const themesOptions = {
       main: "#101F30",
       secondary: "#454545",
       light: "#A3A3A3",
+      gray: "#B3B3B3",
     },
     secondary: {
       main: "#4154FA",

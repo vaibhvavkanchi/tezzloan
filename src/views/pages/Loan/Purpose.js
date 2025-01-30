@@ -394,7 +394,14 @@ const Purpose = ({ handleNext, formData, setFormData }) => {
         <Typography variant="h1" sx={{ mt: "0px !important" }}>
           What’s your plan?
         </Typography>
-        <Box display="flex" gap={2} width="100%" mt="45px" mb="53px">
+        <Box
+          display="flex"
+          gap={2}
+          width="100%"
+          mt="45px"
+          mb="53px"
+          justifyContent="center"
+        >
           {loanOptions.map((option) => (
             <Paper
               key={option.value}

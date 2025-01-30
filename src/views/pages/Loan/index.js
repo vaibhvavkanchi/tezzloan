@@ -1,22 +1,8 @@
 import React, { useState } from "react";
-import {
-  Stepper,
-  Step,
-  StepLabel,
-  StepContent,
-  Typography,
-  Button,
-  Box,
-  styled,
-  StepConnector,
-  Radio,
-  SvgIcon,
-  Container,
-  LinearProgress,
-  Grid,
-} from "@mui/material";
+import { Box, styled } from "@mui/material";
 import Purpose from "./Purpose";
 import Deal from "./Deal";
+import Offers from "./offers";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "& .headTitle": {
@@ -40,15 +26,8 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-// Styled Connector for Steps
-const CustomConnector = styled(StepConnector)(({ theme }) => ({
-  "& .MuiStepConnector-line": {
-    borderLeftWidth: 0,
-    borderColor: theme.palette.divider,
-  },
-}));
-
 const Loan = ({ activeStep, activeSubStep, handleNext }) => {
+  console.log("activeStep", activeStep, "activeSubStep", activeSubStep);
   const [formData, setFormData] = useState({
     propertyType: "plot-purchase",
     marketValue: 500000,
@@ -58,12 +37,27 @@ const Loan = ({ activeStep, activeSubStep, handleNext }) => {
   console.log(formData);
   return (
     <StyledBox>
-      <Purpose
-        handleNext={() => handleNext()}
-        formData={formData}
-        setFormData={setFormData}
-      />
-      <Deal/>
+      {activeStep === 0 && activeSubStep === 0 && (
+        <Purpose
+          handleNext={() => handleNext()}
+          formData={formData}
+          setFormData={setFormData}
+        />
+      )}
+      {activeStep === 0 && activeSubStep === 1 && (
+        <Offers
+          handleNext={() => handleNext()}
+          formData={formData}
+          setFormData={setFormData}
+        />
+      )}
+      {activeStep === 1 && activeSubStep === 0 && (
+        <Deal
+          handleNext={() => handleNext()}
+          formData={formData}
+          setFormData={setFormData}
+        />
+      )}
 
       {/* {purpposeType === "" && (
         <>
