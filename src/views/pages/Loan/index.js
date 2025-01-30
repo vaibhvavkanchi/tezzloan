@@ -3,6 +3,7 @@ import { Box, styled } from "@mui/material";
 import Purpose from "./Purpose";
 import Deal from "./Deal";
 import Offers from "./offers";
+import CibilVerification from "./CibilVerification";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "& .headTitle": {
@@ -53,6 +54,13 @@ const Loan = ({ activeStep, activeSubStep, handleNext }) => {
       )}
       {activeStep === 1 && activeSubStep === 0 && (
         <Deal
+          handleNext={() => handleNext()}
+          formData={formData}
+          setFormData={setFormData}
+        />
+      )}
+      {activeStep === 1 && activeSubStep === 1 && (
+        <CibilVerification
           handleNext={() => handleNext()}
           formData={formData}
           setFormData={setFormData}

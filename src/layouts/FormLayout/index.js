@@ -86,7 +86,7 @@ export default function HomeLayout({ children }) {
     },
     {
       label: "Personal Details",
-      substeps: [],
+      substeps: [1, 2],
     },
   ];
 
