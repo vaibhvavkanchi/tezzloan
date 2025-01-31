@@ -1,4 +1,11 @@
-import { Box, Button, Grid, styled, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  styled,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import React from "react";
 import LinearProgress, {
   linearProgressClasses,
@@ -15,7 +22,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   "& .card": {
     width: "90%",
     boxShadow: theme.shadows[2],
-    padding: "20px 40px 20px 40px",
+
     backgroundColor: theme.palette.background.default,
     borderRadius: "10px",
     // display: "flex",
@@ -61,6 +68,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 const Offers = ({ handleNext, formData, setFormData }) => {
+  const isSmall = useMediaQuery("(max-width:599px)");
   const bankLoans = [
     {
       bankName: "HDFC Bank",
@@ -105,10 +113,7 @@ const Offers = ({ handleNext, formData, setFormData }) => {
   ];
   return (
     <StyledBox>
-      <Box
-        className="flex  w-full flex-col justify-center items-center"
-        sx={{ width: "calc(100% - 200px)" }}
-      >
+      <Box className="flex  w-full flex-col justify-center items-center">
         <BorderLinearProgress
           sx={{ maxWidth: "250px", width: "100%", mt: "72px" }}
           variant="determinate"
@@ -117,7 +122,10 @@ const Offers = ({ handleNext, formData, setFormData }) => {
         <Typography className="headTitle1" textAlign="center">
           HOME LOAN
         </Typography>
-        <Typography variant="h1" sx={{ mt: "0px !important", mb: "95px" }}>
+        <Typography
+          variant="h1"
+          sx={{ mt: "0px !important", mb: { md: "95px", sm: "" } }}
+        >
           Offers are lining up - Take your pick
         </Typography>
         {/* {bankLoans.map((item, index) => (
@@ -144,10 +152,22 @@ const Offers = ({ handleNext, formData, setFormData }) => {
           </Box>
         ))} */}
 
-        <Box className="pl-[350px] w-full pb-[70px]">
+        <Box className="w-full flex flex-col items-center justify-center pl-[0px] pb-[70px] sm:pl-[0px] md:pl-[0px] lg:pl-[300px] xl:pl-[350px] 2xl:pl-[400px]">
           {bankLoans.map((item, index) => (
-            <Grid container columnSpacing={1} className="card">
-              <Grid item sm={3} className="flex flex-col justify-center ">
+            <Grid
+              container
+              columnSpacing={isSmall ? 0 : 1}
+              sx={{
+                padding: isSmall ? "20px 0px 0px 0px" : "20px 40px 20px 40px",
+              }}
+              className="card"
+            >
+              <Grid
+                item
+                xs={4}
+                sm={3}
+                className="flex flex-col justify-center "
+              >
                 <img
                   src={item.img}
                   className="h-[20px] max-w-max mb-[13px]"
@@ -155,7 +175,7 @@ const Offers = ({ handleNext, formData, setFormData }) => {
                 />
                 <Typography className="bank-name">{item?.bankName}</Typography>
               </Grid>
-              <Grid item sm={3}>
+              <Grid item xs={4} sm={3}>
                 <Typography className="max-amount">Max. Loan Amount</Typography>
                 <Typography className="bank-name">
                   {item?.maxLoanAmount}
@@ -163,7 +183,7 @@ const Offers = ({ handleNext, formData, setFormData }) => {
                 <Typography className="max-amount"> EMI</Typography>
                 <Typography className="bank-name">{item?.applyNow}</Typography>
               </Grid>
-              <Grid item sm={4}>
+              <Grid item xs={4} sm={3} md={4}>
                 <Typography className="max-amount">Max. Tenure</Typography>
                 <Typography className="bank-name">{item?.maxTenure}</Typography>
                 <Typography className="max-amount">Rate of Interest</Typography>
@@ -171,7 +191,13 @@ const Offers = ({ handleNext, formData, setFormData }) => {
                   {item?.rateOfInterest}
                 </Typography>
               </Grid>
-              <Grid item sm={2} className="flex flex-col justify-center ">
+              <Grid
+                item
+                xs={12}
+                sm={3}
+                md={2}
+                className="flex flex-col justify-center "
+              >
                 <Button
                   variant="contained"
                   className="button"

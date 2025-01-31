@@ -7,8 +7,6 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 import Footer from "./Footer";
 import {
   Box,
-  Button,
-  Grid,
   Step,
   StepConnector,
   StepContent,
@@ -71,10 +69,8 @@ export default function HomeLayout({ children }) {
   const classes = useStyles;
   const location = useLocation();
   AOS.init();
-  const isSmall = useMediaQuery("(max-width:680px)");
-  const isSmall1 = useMediaQuery("(max-width:1024px)");
 
-  let homeRoute = location.pathname === "/";
+  const isSmall1 = useMediaQuery("(max-width:1024px)");
 
   const [activeStep, setActiveStep] = useState(0);
   const [activeSubStep, setActiveSubStep] = useState(0);
@@ -86,7 +82,7 @@ export default function HomeLayout({ children }) {
     },
     {
       label: "Personal Details",
-      substeps: [1, 2],
+      substeps: [1, 2, 3, 4, 5],
     },
   ];
 
