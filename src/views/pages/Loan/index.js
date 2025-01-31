@@ -5,6 +5,7 @@ import Deal from "./Deal";
 import Offers from "./offers";
 import CibilVerification from "./CibilVerification";
 import IncomeSource from "./IncomeSource";
+import Earnings from "./Earnings";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "& .headTitle": {
@@ -62,6 +63,20 @@ const Loan = ({ activeStep, activeSubStep, handleNext }) => {
       )}
       {activeStep === 1 && activeSubStep === 1 && (
         <CibilVerification
+          handleNext={() => handleNext()}
+          formData={formData}
+          setFormData={setFormData}
+        />
+      )}
+      {activeStep === 1 && activeSubStep === 2 && (
+        <IncomeSource
+          handleNext={() => handleNext()}
+          formData={formData}
+          setFormData={setFormData}
+        />
+      )}
+      {activeStep === 1 && activeSubStep === 3 && (
+        <Earnings
           handleNext={() => handleNext()}
           formData={formData}
           setFormData={setFormData}

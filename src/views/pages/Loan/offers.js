@@ -18,6 +18,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
     fontSize: "16px",
     color: theme.palette.primary.main,
     marginTop: "40px",
+    marginBottom: "40px",
   },
   "& .card": {
     width: "90%",
@@ -25,11 +26,6 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
     backgroundColor: theme.palette.background.default,
     borderRadius: "10px",
-    // display: "flex",
-    // justifyContent: "space-between",
-    // alignItems: "center",
-    // maxWidth: "920px",
-
     marginTop: "40px",
   },
 
@@ -128,30 +124,6 @@ const Offers = ({ handleNext, formData, setFormData }) => {
         >
           Offers are lining up - Take your pick
         </Typography>
-        {/* {bankLoans.map((item, index) => (
-          <Box className="card">
-            <Box>
-              <img src={item.img} className="h-[20px]" alt="bank logo" />
-              <Typography>{item?.bankName}</Typography>
-            </Box>
-            <Box>
-              <Typography>Max. Loan Amount</Typography>
-              <Typography>{item?.maxLoanAmount}</Typography>
-              <Typography> EMI</Typography>
-              <Typography>{item?.applyNow}</Typography>
-            </Box>
-            <Box>
-              <Typography>Max. Tenure</Typography>
-              <Typography>{item?.maxTenure}</Typography>
-              <Typography>Rate of Interest</Typography>
-              <Typography>{item?.rateOfInterest}</Typography>
-            </Box>
-            <Box>
-              <Button variant="contained">Apply Now</Button>
-            </Box>
-          </Box>
-        ))} */}
-
         <Box className="w-full flex flex-col items-center justify-center pl-[0px] pb-[70px] sm:pl-[0px] md:pl-[0px] lg:pl-[300px] xl:pl-[350px] 2xl:pl-[400px]">
           {bankLoans.map((item, index) => (
             <Grid

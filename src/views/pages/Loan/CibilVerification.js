@@ -46,6 +46,21 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
+const StyledBox1 = styled(Box)(({ theme }) => ({
+  // width: "100%",
+  animation: "fadeInSlide 0.3s ease-in-out",
+  "@keyframes fadeInSlide": {
+    from: {
+      opacity: 0,
+      transform: "translateY(-10px)",
+    },
+    to: {
+      opacity: 1,
+      transform: "translateY(0)",
+    },
+  },
+}));
+
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
@@ -56,7 +71,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-const CibilVerification = () => {
+const CibilVerification = ({ handleNext, formData, setFormData }) => {
   const [document, setDocument] = useState("");
   const [documentNumber, setDocumentNumber] = useState({
     pan: "",
@@ -112,7 +127,12 @@ const CibilVerification = () => {
   };
 
   const TextFieldWithRadio = ({ Name }) => (
-    <div className={`NumberField ${document === Name ? "radioField text-white" : "bg-white"} max-w-[603px] lg:mt-10 mt-7 cursor-pointer`} onClick={() => handleChange(Name)}>
+    <div
+      className={`NumberField ${
+        document === Name ? "radioField text-white" : "bg-white"
+      } max-w-[603px] lg:mt-10 mt-7 cursor-pointer`}
+      onClick={() => handleChange(Name)}
+    >
       <FormControlLabel
         value="radio-option"
         control={
@@ -132,33 +152,46 @@ const CibilVerification = () => {
 
   return (
     <StyledBox>
-      <Box className="flex flex-col items-center w-full" sx={{ width: "calc(100% - 200px)" }}>
+      <Box
+        className="flex flex-col items-center w-full"
+        sx={{ width: "calc(100% - 200px)" }}
+      >
         <BorderLinearProgress
           sx={{ maxWidth: "250px", width: "100%", mt: "72px" }}
           variant="determinate"
           value={45}
         />
-        <Typography className="headTitle1 mt-4 lg:mt-10 sm:mt-4 mb-3 lg:mb-11 md:mb-6 sm:mb-4  uppercase">Home Loan</Typography>
-        <Typography variant="h1" className="mt-0 lg:mt-4">Enter your details</Typography>
+        <Typography className="headTitle1 mt-4 lg:mt-10 sm:mt-4 mb-3 lg:mb-11 md:mb-6 sm:mb-4  uppercase">
+          Home Loan
+        </Typography>
+        <Typography variant="h1" className="mt-0 lg:mt-4">
+          Enter your details
+        </Typography>
 
         <TextFieldWithRadio Name={"PAN"} />
         {document === "PAN" && (
-          <>
+          <StyledBox1 className="flex flex-col items-center w-full">
             <TextField
               id={"pan"}
               className="NumberField bg-white max-w-[603px] lg:mt-8 mt-6"
               variant="standard"
               InputProps={{
-                startAdornment: <div className="w-28"><img src={"images/PANNumber.png"} alt={"pan number"} /></div>,
+                startAdornment: (
+                  <div className="w-28">
+                    <img src={"images/PANNumber.png"} alt={"pan number"} />
+                  </div>
+                ),
               }}
               value={documentNumber.pan}
               name={"pan"}
               onChange={handleInputChange}
             />
-            {
-              errors.pan && <span className="py-2 text-red-600 max-w-[603px] w-full">{errors.pan}</span>
-            }
-          </>
+            {errors.pan && (
+              <span className="py-2 text-red-600 max-w-[603px] w-full">
+                {errors.pan}
+              </span>
+            )}
+          </StyledBox1>
         )}
 
         <div className="lg:mt-4 mt-6 w-full flex justify-center">
@@ -166,38 +199,49 @@ const CibilVerification = () => {
         </div>
 
         {document === "Aadhar" && (
-          <div className="xs:mb-5 sm:mb-10 md:mb-28 mb-5 w-full flex flex-col items-center justify-center">
-
+          <StyledBox1 className="xs:mb-5 sm:mb-10 md:mb-28 mb-5 w-full flex flex-col items-center justify-center">
             <TextField
               id={"fullName"}
               className="NumberField bg-white max-w-[603px] mt-8"
               variant="standard"
               InputProps={{
-                startAdornment: <div className="w-28"><img src={"images/fullName.png"} alt={"full name"} /></div>,
+                startAdornment: (
+                  <div className="w-28">
+                    <img src={"images/fullName.png"} alt={"full name"} />
+                  </div>
+                ),
               }}
               value={documentNumber.fullName}
               name={"fullName"}
               onChange={handleInputChange}
             />
-            {
-              errors.fullName && <span className="py-2 text-red-600 max-w-[603px] w-full">{errors.fullName}</span>
-            }
+            {errors.fullName && (
+              <span className="py-2 text-red-600 max-w-[603px] w-full">
+                {errors.fullName}
+              </span>
+            )}
 
             <TextField
               id={"aadharNumber"}
               className="NumberField bg-white max-w-[603px] mt-8"
               variant="standard"
               InputProps={{
-                startAdornment: <div className="w-28"><img src={"images/PANNumber.png"} alt={"aadhar number"} /></div>,
+                startAdornment: (
+                  <div className="w-28">
+                    <img src={"images/PANNumber.png"} alt={"aadhar number"} />
+                  </div>
+                ),
               }}
               value={documentNumber.aadharNumber}
               name={"aadharNumber"}
               onChange={handleInputChange}
             />
-            {
-              errors.aadharNumber && <span className="py-2 text-red-600 max-w-[603px] w-full">{errors.aadharNumber}</span>
-            }
-          </div>
+            {errors.aadharNumber && (
+              <span className="py-2 text-red-600 max-w-[603px] w-full">
+                {errors.aadharNumber}
+              </span>
+            )}
+          </StyledBox1>
         )}
 
         <div className="md:hidden block">
@@ -212,10 +256,15 @@ const CibilVerification = () => {
         <Button
           variant="contained"
           className="ProceedBtn xs:mt-8 sm:mt-12 md:mt-20 mt-8 mb-24 py-5 px-28 rounded-3xl capitalize font-semibold"
-          onClick={() => { }}
+          onClick={() => {
+            handleNext();
+          }}
           disabled={
             (document === "PAN" && !!errors.pan && documentNumber.pan === "") ||
-            (document === "Aadhar" && (!!errors.fullName || !!errors.aadharNumber) && documentNumber.aadharNumber === "" && documentNumber.fullName === "")
+            (document === "Aadhar" &&
+              (!!errors.fullName || !!errors.aadharNumber) &&
+              documentNumber.aadharNumber === "" &&
+              documentNumber.fullName === "")
           }
         >
           Continue

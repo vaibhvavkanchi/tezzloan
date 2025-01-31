@@ -179,7 +179,6 @@ export default function HomeLayout({ children }) {
             >
               <Stepper
                 activeStep={activeStep}
-                // orientation="vertical"
                 orientation={isSmall1 ? "horizontal" : "vertical"}
                 connector={<CustomConnector />}
                 sx={{
@@ -218,7 +217,7 @@ export default function HomeLayout({ children }) {
                         }}
                       />
                     )}
-                    <StepContent></StepContent>
+                    {!isSmall1 && <StepContent></StepContent>}
                   </Step>
                 ))}
               </Stepper>
