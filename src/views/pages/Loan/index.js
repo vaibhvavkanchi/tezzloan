@@ -4,6 +4,7 @@ import Purpose from "./Purpose";
 import Deal from "./Deal";
 import Offers from "./offers";
 import CibilVerification from "./CibilVerification";
+import IncomeSource from "./IncomeSource";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   "& .headTitle": {
