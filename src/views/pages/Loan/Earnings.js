@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import {
   Box,
-  FormControlLabel,
+  Button,
   InputAdornment,
   LinearProgress,
-  Radio,
   Slider,
   TextField,
   Typography,
@@ -14,6 +13,7 @@ import { Lock, Login } from "@mui/icons-material";
 import { BiEdit } from "react-icons/bi";
 
 const StyledBox = styled(Box)(({ theme }) => ({
+  paddingBottom: "40px",
   "& .headTitle1": {
     textAlign: "center",
     fontSize: "16px",
@@ -43,6 +43,28 @@ const StyledBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {
       width: "95%",
     },
+  },
+  "& .form-field": {
+    background: "white",
+    marginTop: "53px",
+    marginBottom: "35px",
+    "& .MuiOutlinedInput-input": {
+      textAlign: "center",
+    },
+    "& .MuiOutlinedInput-root": {
+      maxWidth: "290px !important",
+      width: "100% !important",
+      fontSize: "36px",
+      fontWeight: 700,
+      color: theme.palette.background.dark,
+    },
+  },
+  "& .button": {
+    backgroundColor: theme.palette.secondary.main,
+    textTransform: "capitalize",
+    height: "55px",
+    borderRadius: "30px",
+    padding: "20px 65px 20px 65px",
   },
 }));
 
@@ -153,10 +175,10 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
   };
   const marks = [
     {
-      value: 500000,
-      label: "₹5 Lacs",
+      value: 250000,
+      label: "₹2,50,000",
     },
-    { value: 50000000, label: "₹5 Crore" },
+    { value: 5000000, label: "₹50,00,000 +" },
   ];
   function valuetext(value) {
     if (value >= 10000000) {
@@ -263,12 +285,12 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
             if (/^[1-9]\d{0,9}$/.test(inputValue) || inputValue === "") {
               const numericValue =
                 inputValue === "" ? 0 : parseInt(inputValue, 10);
-              if (numericValue >= 500000 && numericValue <= 50000000) {
+              if (numericValue >= 250000 && numericValue <= 5000000) {
                 setFormData((pre) => ({ ...pre, knowValue: inputValue }));
-              } else if (numericValue < 500000) {
-                setFormData((pre) => ({ ...pre, knowValue: "500000" }));
-              } else if (numericValue > 50000000) {
-                setFormData((pre) => ({ ...pre, knowValue: "50000000" }));
+              } else if (numericValue < 250000) {
+                setFormData((pre) => ({ ...pre, knowValue: "250000" }));
+              } else if (numericValue > 5000000) {
+                setFormData((pre) => ({ ...pre, knowValue: "5000000" }));
               }
             }
           }}
@@ -289,11 +311,20 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
           getAriaValueText={valuetext}
           valueLabelDisplay="auto"
           valueLabelFormat={valuetext}
-          min={500000}
-          max={50000000}
+          min={250000}
+          max={5000000}
           step={1}
           marks={marks}
         />
+
+        <Button
+          sx={{ mt: "60px" }}
+          onClick={() => handleNext()}
+          className="button"
+          variant="contained"
+        >
+          We’re almost done
+        </Button>
       </Box>
     </StyledBox>
   );

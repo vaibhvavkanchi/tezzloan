@@ -30,6 +30,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
     textAlign: "center",
   },
   "& .form-field": {
+    background:'white',
     marginTop: "53px",
     marginBottom: "35px",
     "& .MuiOutlinedInput-input": {
