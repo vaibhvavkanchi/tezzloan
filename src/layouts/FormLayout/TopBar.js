@@ -19,15 +19,25 @@ const TopBar = ({ handleBack }) => {
       <AppBar sx={{ backgroundColor: "#010B24" }}>
         <Toolbar>
           <Grid container>
-            <Grid item xs={4} className="flex justify-end">
+            <Grid
+              item
+              xs={2}
+              sm={4}
+              className="flex justify-start sm:justify-end"
+            >
               <IconButton onClick={() => handleBack()}>
                 <ArrowBackIosNewIcon sx={{ color: "#fff" }} />
               </IconButton>
             </Grid>
-            <Grid item xs={4} className="flex justify-center">
+            <Grid item xs={6} sm={4} className="flex justify-center">
               <LogoBox />
             </Grid>
-            <Grid item xs={4} className="flex justify-center items-center">
+            <Grid
+              item
+              xs={4}
+              sm={4}
+              className="flex justify-center items-center"
+            >
               <Typography sx={{ color: "#fff", fontSize: "14px" }}>
                 Disclosures
               </Typography>

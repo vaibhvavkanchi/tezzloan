@@ -172,7 +172,7 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
         {document === "PAN" && (
           <StyledBox1 className="flex flex-col items-center w-full">
             <TextField
-              id={"pan"}
+              id="pan"
               className="NumberField bg-white max-w-[603px] lg:mt-8 mt-6"
               variant="standard"
               InputProps={{
@@ -183,7 +183,8 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
                 ),
               }}
               value={documentNumber.pan}
-              name={"pan"}
+              name="pan"
+              placeholder=" ABCTY1234D"
               onChange={handleInputChange}
             />
             {errors.pan && (
@@ -204,6 +205,7 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
               id={"fullName"}
               className="NumberField bg-white max-w-[603px] mt-8"
               variant="standard"
+              placeholder="Full Name"
               InputProps={{
                 startAdornment: (
                   <div className="w-28">
@@ -225,6 +227,7 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
               id={"aadharNumber"}
               className="NumberField bg-white max-w-[603px] mt-8"
               variant="standard"
+              placeholder="Aadhar Number"
               InputProps={{
                 startAdornment: (
                   <div className="w-28">

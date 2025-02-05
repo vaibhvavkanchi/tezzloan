@@ -120,9 +120,13 @@ const Deal = ({ handleNext, formData, setFormData }) => {
             !otpsend ? "mb-11 " : "mt-9"
           }" `}
         >
-          {!otpsend ? "Commercial property loan" : "HOME LOAN"}
+          HOME LOAN
         </Typography>
-        <Typography  className={` text-[20px] lg:text-[40px] sm:text-[30px]  mt-3 font-bold ${!otpsend ? "lg:mt-6" : "lg:mt-9 mt-3"}" `}>
+        <Typography
+          className={` text-[20px] lg:text-[40px] sm:text-[30px]  mt-3 font-bold ${
+            !otpsend ? "lg:mt-6" : "lg:mt-9 mt-3"
+          }" `}
+        >
           Let’s seal the deal
         </Typography>
 
@@ -161,7 +165,10 @@ const Deal = ({ handleNext, formData, setFormData }) => {
           </>
         ) : (
           <div className="mt-4 flex flex-col items-center justify-center">
-            <Typography variant="body2" className="offerText mb-6 lg:mb-14 sm:mb-9 text-center">
+            <Typography
+              variant="body2"
+              className="offerText mb-6 lg:mb-14 sm:mb-9 text-center"
+            >
               Enter the 5-digit confirmation code that has been sent to +91-
               {maskMiddleCharacters(number)}{" "}
               <span
@@ -174,7 +181,10 @@ const Deal = ({ handleNext, formData, setFormData }) => {
               </span>
             </Typography>
             <OTPInput onComplete={otpConfirmation} />
-            <p style={{ color: "#666" }} className="mt-5 lg:mt-8 sm:mt-6 mb-7 lg:mb-24">
+            <p
+              style={{ color: "#666" }}
+              className="mt-5 lg:mt-8 sm:mt-6 mb-7 lg:mb-24"
+            >
               Haven't got the confirmation code yet?{" "}
               <a
                 href="#"

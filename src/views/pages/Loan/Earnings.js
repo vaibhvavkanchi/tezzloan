@@ -203,7 +203,7 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
         <Typography variant="h1" className="mt-0 lg:mt-4">
           What is your yearly earnings?
         </Typography>
-        <Box className="max-w-[700px] w-full">
+        <Box className="max-w-[700px] w-full p-3 md:p-0">
           <Typography className="option-txt mt-[66px]">
             <span className="option">Option 1 </span>
             (Recommended): Fetch from Income Tax Portal
