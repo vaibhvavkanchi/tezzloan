@@ -392,7 +392,7 @@ const Purpose = ({ handleNext, formData, setFormData }) => {
         <Typography className="headTitle1" textAlign="center">
           HOME LOAN
         </Typography>
-        <Typography variant="h1" sx={{ mt: "0px !important" }}>
+        <Typography variant="h1" sx={{ mt: "10px !important" }}>
           What’s your plan?
         </Typography>
         <Box

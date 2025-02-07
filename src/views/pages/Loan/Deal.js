@@ -116,9 +116,7 @@ const Deal = ({ handleNext, formData, setFormData }) => {
           value={!otpsend ? 15 : 30}
         />
         <Typography
-          className={`headTitle1 lg:mt-10 sm:mt-6 mt-4 lg:mb-11 sm:mb-6 mb-0 uppercase ${
-            !otpsend ? "mb-11 " : "mt-9"
-          }" `}
+          className={`headTitle1 `}
         >
           HOME LOAN
         </Typography>

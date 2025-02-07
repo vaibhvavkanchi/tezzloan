@@ -18,7 +18,6 @@ const StyledBox = styled(Box)(({ theme }) => ({
     fontSize: "16px",
     color: theme.palette.primary.main,
     marginTop: "40px",
-    marginBottom: "40px",
   },
   "& .card": {
     width: "90%",
@@ -120,7 +119,7 @@ const Offers = ({ handleNext, formData, setFormData }) => {
         </Typography>
         <Typography
           variant="h1"
-          sx={{ mt: "0px !important", mb: { md: "95px", sm: "" } }}
+          sx={{ mt: "10px !important", mb: { md: "0px", sm: "" } }}
         >
           Offers are lining up - Take your pick
         </Typography>
