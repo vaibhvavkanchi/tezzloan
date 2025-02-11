@@ -85,6 +85,7 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
   });
 
   const handleChange = (Name) => {
+    setFormData((pre) => ({ ...pre, docType: Name }))
     setDocument(Name);
     setErrors({ pan: "", aadharNumber: "", fullName: "" }); // Clear errors when switching document type
   };
@@ -120,10 +121,14 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
       ...prevErrors,
       [name]: error,
     }));
-    setDocumentNumber((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    if(name === "pan"){
+      setFormData((pre) => ({ ...pre, docNumber: value }))
+    } else if(name === "fullName"){
+      setFormData((pre) => ({ ...pre, fullName: value }))
+    
+    } else if(name === "aadharNumber"){
+      setFormData((pre) => ({ ...pre, docNumber: value }))
+    }
   };
 
   const TextFieldWithRadio = ({ Name }) => (
@@ -182,7 +187,7 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
                   </div>
                 ),
               }}
-              value={documentNumber.pan}
+              value={formData.docNumber}
               name="pan"
               placeholder=" ABCTY1234D"
               onChange={handleInputChange}
@@ -213,7 +218,7 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
                   </div>
                 ),
               }}
-              value={documentNumber.fullName}
+              value={formData.fullName}
               name={"fullName"}
               onChange={handleInputChange}
             />
@@ -235,7 +240,7 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
                   </div>
                 ),
               }}
-              value={documentNumber.aadharNumber}
+              value={formData.docNumber}
               name={"aadharNumber"}
               onChange={handleInputChange}
             />

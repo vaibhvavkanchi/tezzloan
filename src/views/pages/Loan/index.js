@@ -37,6 +37,11 @@ const Loan = ({ activeStep, activeSubStep, handleNext }) => {
     marketValue: 500000,
     knowMarketValue: true,
     knowValue: 500000,
+    mobile:0,
+    docType:'',
+    docNumber:'',
+    fullName:'',
+    employmentType:'',
   });
   console.log(formData);
   return (
