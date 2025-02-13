@@ -115,15 +115,9 @@ const Deal = ({ handleNext, formData, setFormData }) => {
           variant="determinate"
           value={!otpsend ? 15 : 30}
         />
+        <Typography className={`headTitle1 `}>HOME LOAN</Typography>
         <Typography
-          className={`headTitle1 `}
-        >
-          HOME LOAN
-        </Typography>
-        <Typography
-          className={` text-[20px] lg:text-[40px] sm:text-[30px]  mt-3 font-bold ${
-            !otpsend ? "lg:mt-6" : "lg:mt-9 mt-3"
-          }" `}
+          className={` text-[20px] lg:text-[40px] sm:text-[30px]   font-bold `}
         >
           Let’s seal the deal
         </Typography>

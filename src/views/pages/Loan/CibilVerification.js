@@ -166,10 +166,10 @@ const CibilVerification = ({ handleNext, formData, setFormData }) => {
           variant="determinate"
           value={45}
         />
-        <Typography className="headTitle1 mt-4 lg:mt-10 sm:mt-4 mb-3 lg:mb-11 md:mb-6 sm:mb-4  uppercase">
+        <Typography className="headTitle1 mt-4  uppercase">
           Home Loan
         </Typography>
-        <Typography variant="h1" className="mt-0 lg:mt-4">
+        <Typography variant="h1" sx={{ mt: "10px !important" }}>
           Enter your details
         </Typography>
 

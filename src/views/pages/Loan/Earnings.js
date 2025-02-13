@@ -197,10 +197,10 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
           variant="determinate"
           value={45}
         />
-        <Typography className="headTitle1 mt-4 lg:mt-10 sm:mt-4 mb-3 lg:mb-11 md:mb-6 sm:mb-4  uppercase">
+        <Typography className="headTitle1 mt-4  uppercase">
           Home Loan
         </Typography>
-        <Typography variant="h1" className="mt-0 lg:mt-4">
+        <Typography variant="h1" sx={{ mt: "10px !important" }}>
           What is your yearly earnings?
         </Typography>
         <Box className="max-w-[700px] w-full p-3 md:p-0">
@@ -225,10 +225,12 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
                 </div>
               ),
             }}
-            // value={documentNumber.aadharNumber}
+            value={formData.ITRID}
             name={"Login"}
             placeholder={"Login"}
-            // onChange={handleInputChange}
+            onChange={(e) =>
+              setFormData((pre) => ({ ...pre, ITRID: e.target.value }))
+            }
           />
           <TextField
             id={"Password"}
@@ -241,10 +243,12 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
                 </div>
               ),
             }}
-            // value={documentNumber.aadharNumber}
+            value={formData.ITRPass}
             name={"Password"}
             placeholder={"Password"}
-            // onChange={handleInputChange}
+            onChange={(e) =>
+              setFormData((pre) => ({ ...pre, ITRPass: e.target.value }))
+            }
           />
 
           <Typography className="option-txt mt-[66px]">
@@ -272,7 +276,7 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
               <span className="checkmark"></span>
             </CustomCheckbox>
             <Typography className="checkbox-text">
-              Know your property’s guideline value?
+              Fill Details Myself
             </Typography>
           </Box>
         </Box>
