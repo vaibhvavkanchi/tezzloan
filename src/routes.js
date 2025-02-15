@@ -17,6 +17,11 @@ export const routes = [
     layout: FormLayout,
     component: lazy(() => import("../src/views/pages/Loan/index")),
   },
+  {
+    exact: true,
+    path: "/thank-you",
+    component: lazy(() => import("../src/views/pages/Loan/ThankYou")),
+  },
 
   {
     exact: true,
