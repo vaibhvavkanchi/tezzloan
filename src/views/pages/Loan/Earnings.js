@@ -171,7 +171,7 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
 
 const Earnings = ({ handleNext, formData, setFormData }) => {
   const handleChange1 = (event, newValue) => {
-    setFormData((pre) => ({ ...pre, knowValue: newValue }));
+    setFormData((pre) => ({ ...pre, manualIncomeAmount: newValue }));
   };
   const marks = [
     {
@@ -265,13 +265,13 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
               <input
                 type="checkbox"
 
-                //   checked={formData?.knowMarketValue}
-                //   onChange={(e) =>
-                //     setFormData((pre) => ({
-                //       ...pre,
-                //       knowMarketValue: e.target.checked,
-                //     }))
-                //   }
+                  checked={formData?.manualIncome}
+                  onChange={(e) =>
+                    setFormData((pre) => ({
+                      ...pre,
+                      manualIncome: e.target.checked,
+                    }))
+                  }
               />
               <span className="checkmark"></span>
             </CustomCheckbox>
@@ -283,18 +283,27 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
         <TextField
           className="form-field"
           variant="outlined"
-          value={formData?.knowValue}
+          value={formData?.manualIncomeAmount}
           onChange={(e) => {
             const inputValue = e.target.value;
             if (/^[1-9]\d{0,9}$/.test(inputValue) || inputValue === "") {
               const numericValue =
                 inputValue === "" ? 0 : parseInt(inputValue, 10);
               if (numericValue >= 250000 && numericValue <= 5000000) {
-                setFormData((pre) => ({ ...pre, knowValue: inputValue }));
+                setFormData((pre) => ({
+                  ...pre,
+                  manualIncomeAmount: inputValue,
+                }));
               } else if (numericValue < 250000) {
-                setFormData((pre) => ({ ...pre, knowValue: "250000" }));
+                setFormData((pre) => ({
+                  ...pre,
+                  manualIncomeAmount: "250000",
+                }));
               } else if (numericValue > 5000000) {
-                setFormData((pre) => ({ ...pre, knowValue: "5000000" }));
+                setFormData((pre) => ({
+                  ...pre,
+                  manualIncomeAmount: "5000000",
+                }));
               }
             }
           }}
@@ -309,7 +318,7 @@ const Earnings = ({ handleNext, formData, setFormData }) => {
 
         <IOSSlider
           sx={{ maxWidth: "410px !important", width: "100% !important" }}
-          value={formData?.knowValue}
+          value={formData?.manualIncomeAmount}
           onChange={handleChange1}
           aria-labelledby="slider"
           getAriaValueText={valuetext}

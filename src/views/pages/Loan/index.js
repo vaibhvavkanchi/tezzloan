@@ -44,6 +44,9 @@ const Loan = ({ activeStep, activeSubStep, handleNext }) => {
     employmentType: "",
     ITRID: "",
     ITRPass: "",
+    manualIncome: true,
+    manualIncomeAmount: 250000,
+    coapplicant: false,
   });
   console.log(formData);
   return (
