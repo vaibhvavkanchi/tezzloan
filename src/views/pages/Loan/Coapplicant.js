@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Checkbox,
   FormControlLabel,
   InputAdornment,
@@ -61,8 +62,8 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
   "& .form-field": {
     background: "white",
-    marginTop: "53px",
-    marginBottom: "35px",
+    marginTop: "23px",
+    marginBottom: "25px",
     "& .MuiOutlinedInput-input": {
       textAlign: "center",
     },
@@ -73,6 +74,13 @@ const StyledBox = styled(Box)(({ theme }) => ({
       fontWeight: 700,
       color: theme.palette.background.dark,
     },
+  },
+  "& .button": {
+    backgroundColor: theme.palette.secondary.main,
+    textTransform: "capitalize",
+    height: "55px",
+    borderRadius: "30px",
+    padding: "20px 65px 20px 65px",
   },
 }));
 
@@ -346,11 +354,11 @@ const Coapplicant = ({ handleNext, formData, setFormData }) => {
               />
             </>
           )}
-          <Typography className="option-txt mt-[25px]">
-            Monthly EMI of All Co- Applicants
-          </Typography>
           {formData?.coapplicant && (
             <>
+              <Typography className="option-txt mt-[25px] max-w-[603px] w-full">
+                Monthly EMI of All Co- Applicants
+              </Typography>
               <TextField
                 className="form-field"
                 variant="outlined"
@@ -403,6 +411,14 @@ const Coapplicant = ({ handleNext, formData, setFormData }) => {
             </>
           )}
           <TextFieldWithRadio Name={"No"} />
+          <Button
+            sx={{ mt: "60px" }}
+            onClick={() => handleNext()}
+            className="button"
+            variant="contained"
+          >
+            View Summary
+          </Button>
         </Box>
       </Box>
     </StyledBox>
